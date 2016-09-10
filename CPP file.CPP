@@ -1,9 +1,8 @@
 #include<fstream.h>
 #include<conio.h>
 #include<stdio.h>
-#include<process.h>
 #include<string.h>
-#include<iomanip.h>
+#include<iomanip.h> 
 
 class book
 {
@@ -51,9 +50,6 @@ class book
 
 
 };
-
-
-
 
 class student
 {
@@ -116,16 +112,12 @@ public:
 	void report()
 	{cout<<"\t"<<admno<<setw(20)<<name<<setw(10)<<token<<endl;}
 
-};         //class ends here
-
-
-
+};   
 
 
 fstream fp,fp1;
 book bk;
 student st;
-
 
 
 void write_book()
@@ -157,9 +149,6 @@ void write_student()
 	fp.close();
 }
 
-
-
-
 void book_issue()
 {
 	char sn[6],bn[6];
@@ -187,8 +176,6 @@ void book_issue()
 						flag=1;
 						st.addtoken();
 						st.getstbno(bk.retbno());
-       						int pos=-1*sizeof(st);
-						fp.seekp(pos,ios::cur);
 						fp.write((char*)&st,sizeof(student));
 						cout<<"\n\n\t Book issued successfully\n\nPlease Note: Write the current date 						in backside of your book and submit within 15 days fine Rs. 1 for each day 							after 15 days period";
 					}
@@ -209,9 +196,6 @@ void book_issue()
 }
 
 
-
-
-
 void intro()
 {
 	clrscr();
@@ -226,61 +210,29 @@ void intro()
 	getch();
 }
 
-
-
-
 void admin_menu()
 {
 	clrscr();
 	int ch2;
 	cout<<"\n\n\n\tADMINISTRATOR MENU";
 	cout<<"\n\n\t1.CREATE STUDENT RECORD";
-	cout<<"\n\n\t2.DISPLAY ALL STUDENTS RECORD";
-	cout<<"\n\n\t3.DISPLAY SPECIFIC STUDENT RECORD ";
-	cout<<"\n\n\t4.MODIFY STUDENT RECORD";
-	cout<<"\n\n\t5.DELETE STUDENT RECORD";
-	cout<<"\n\n\t6.CREATE BOOK ";
-	cout<<"\n\n\t7.DISPLAY ALL BOOKS ";
-	cout<<"\n\n\t8.SEARCH FOR A BOOK ";
-	cout<<"\n\n\t9.MODIFY BOOK ";
-	cout<<"\n\n\t10.DELETE BOOK ";
-	cout<<"\n\n\t11.BACK TO MAIN MENU";
-	cout<<"\n\n\tPlease Enter Your Choice (1-11) ";
+	cout<<"\n\n\t2.CREATE BOOK ";
+	cout<<"\n\n\t3.MODIFY BOOK ";
+	cout<<"\n\n\t4.BACK TO MAIN MENU";
+	cout<<"\n\n\tPlease Enter Your Choice (1-4) ";
 	cin>>ch2;
 	switch(ch2)
 	{
 		case 1: clrscr();
 			write_student();break;
-		case 2: display_alls();break;
-		case 3:
-			char num[6];
-			clrscr();
-			cout<<"\n\n\tPlease Enter The Admission No. ";
-			cin>>num;
-			display_sps(num);
-			break;
-		case 4: modify_student();break;
-		case 5: delete_student();break;
-		case 6: clrscr();
+		case 2: clrscr();
 			write_book();break;
-		case 7: display_allb();break;
-		case 8: {
-			char num[6];
-			clrscr();
-			cout<<"\n\n\tPlease Enter The book No. ";
-			cin>>num;
-			display_spb(num);
-			break;
-			}
-		case 9: modify_book();break;
-		case 10: delete_book();break;
-		case 11: return;
+		case 3: modify_book();break;
+		case 4: return;
 		default:cout<<"\a";
 	}
 	admin_menu();
 }
-
-
 
 void main()
 {
@@ -310,4 +262,3 @@ void main()
 		}
 	}while(ch!='4');
 }
-
