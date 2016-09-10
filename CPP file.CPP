@@ -108,10 +108,6 @@ public:
 	{
 		strcpy(stbno,t);
 	}
-
-	void report()
-	{cout<<"\t"<<admno<<setw(20)<<name<<setw(10)<<token<<endl;}
-
 };   
 
 
